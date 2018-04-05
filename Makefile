@@ -6,14 +6,15 @@ Dependencies\SDL_gfx\SDL2_framerate.c \
 Dependencies\SDL_gfx\SDL2_gfxPrimitives.c \
 Dependencies\SDL_gfx\SDL2_imageFilter.c \
 Dependencies\SDL_gfx\SDL2_rotozoom.c \
-Engine\Particle.cpp
+Engine\Particle.cpp \
+Engine\Vec2.cpp
 
 
 #CC specifies which compiler we're using
 CC = g++
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -IDependencies\SDL\include\SDL2 -IDependencies\SDL_gfx
+INCLUDE_PATHS = -IDependencies\SDL\include\SDL2 -IDependencies\SDL_gfx -IEngine
 
 
 #LIBRARY_PATHS specifies the additional library paths we'll need

@@ -1,7 +1,11 @@
 #include"Engine/WindowSetup.h"
 #include"SDL2_gfxPrimitives.h"
+#include"Vec2.h"
+#include"Particle.h"
 #include<SDL.h>
 void draw(SDL_Renderer*, float delta);
+
+Particle pTst(Vec2(100,100),Vec2(1,0),Vec2(0.1,0),10,0xff00ffff);
 
 int main(int argc, char *argv[]){
     WindowSetup windowSetup(1920,1080,60,true,draw);
@@ -15,8 +19,9 @@ void draw(SDL_Renderer* renderer, float delta){
     //Clear screen
     SDL_RenderClear( renderer );
 
-
-    filledCircleColor(renderer,100,100,50,0xff00ffff);
+    pTst.update();
+    pTst.draw(renderer);
+    
   
     //Update screen
     SDL_RenderPresent( renderer );
