@@ -1,7 +1,8 @@
 #include"Particle.h"
 #include"SDL2_gfxPrimitives.h"
 
-Particle::Particle(Vec2 pos, Vec2 vel, Vec2 acc, float size, Uint32 color){
+
+Particle::Particle(const Vec2& pos, const Vec2& vel, const Vec2& acc, float size, Uint32 color){
     this->pos = pos;
     this->vel = vel;
     this->acc = acc;

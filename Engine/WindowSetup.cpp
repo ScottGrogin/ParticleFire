@@ -5,7 +5,10 @@
 
 WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void(*draw)(SDL_Renderer*,float)){
     bool running=true;
-   
+    const int FPS = 60;
+    const int framedelay = 1000/FPS;
+    Uint32 frameStart;
+    int frameTime;
 
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
@@ -33,8 +36,9 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
             std::cin.get();
         }else {
             while(running) {
+                frameStart = SDL_GetTicks();
 
-                  while(SDL_PollEvent( &e ) != 0 ){
+                  while(SDL_PollEvent( &e )!=0 ){
                     //User requests quit
                     if( e.type == SDL_QUIT ) {
                         running = false;
@@ -48,7 +52,10 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
                 }
 
                 draw(renderer, 0.0f);
-          
+                frameTime = SDL_GetTicks() - frameStart;
+                if(framedelay > frameTime){
+                    SDL_Delay(framedelay-frameTime);
+                }
             }
         }
     }

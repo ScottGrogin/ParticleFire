@@ -7,7 +7,8 @@ Dependencies\SDL_gfx\SDL2_gfxPrimitives.c \
 Dependencies\SDL_gfx\SDL2_imageFilter.c \
 Dependencies\SDL_gfx\SDL2_rotozoom.c \
 Engine\Particle.cpp \
-Engine\Vec2.cpp
+Engine\Vec2.cpp \
+Player.cpp
 
 
 #CC specifies which compiler we're using

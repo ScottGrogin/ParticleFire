@@ -2,13 +2,17 @@
 #define PARTICLE_H_
 #include"Vec2.h"
 #include<SDL.h>
+
 class Particle{
+    private:
+        Vec2 pos;
+      
 
     public:
-        Vec2 pos, vel, acc;
+        Vec2 vel, acc;
         float size;
         Uint32 color;
-        Particle(Vec2 pos, Vec2 vel, Vec2 acc, float size, Uint32 color);
+        Particle(const Vec2& pos, const Vec2& vel, const Vec2& acc, float size, Uint32 color);
         void update();
         void draw(SDL_Renderer* renderer);
 };

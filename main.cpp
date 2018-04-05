@@ -2,10 +2,12 @@
 #include"SDL2_gfxPrimitives.h"
 #include"Vec2.h"
 #include"Particle.h"
+#include"Player.h"
 #include<SDL.h>
 void draw(SDL_Renderer*, float delta);
 
-Particle pTst(Vec2(100,100),Vec2(1,0),Vec2(0.1,0),10,0xff00ffff);
+Particle pTst(Vec2(100,100),Vec2(1,0),Vec2(0.5,0),10,0xff00ffff);
+Player plr(Vec2(200,200),5,0xffffffff);
 
 int main(int argc, char *argv[]){
     WindowSetup windowSetup(1920,1080,60,true,draw);
@@ -21,6 +23,8 @@ void draw(SDL_Renderer* renderer, float delta){
 
     pTst.update();
     pTst.draw(renderer);
+    plr.update();
+    plr.draw(renderer);
     
   
     //Update screen
