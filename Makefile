@@ -6,7 +6,7 @@ Dependencies\SDL_gfx\SDL2_framerate.c \
 Dependencies\SDL_gfx\SDL2_gfxPrimitives.c \
 Dependencies\SDL_gfx\SDL2_imageFilter.c \
 Dependencies\SDL_gfx\SDL2_rotozoom.c \
-Particle.cpp
+Engine\Particle.cpp
 
 
 #CC specifies which compiler we're using
