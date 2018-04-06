@@ -17,6 +17,7 @@ int main(int argc, char *argv[]){
 
 
 void draw(SDL_Renderer* renderer, float delta){
+    SDL_RenderSetLogicalSize(renderer,1920,1080);
     SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0x00, 0xFF );
     //Clear screen
     SDL_RenderClear( renderer );

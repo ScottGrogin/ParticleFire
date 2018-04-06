@@ -5,7 +5,7 @@
 
 WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void(*draw)(SDL_Renderer*,float)){
     bool running=true;
-    const int FPS = 60;
+    const int FPS = fps;
     const int framedelay = 1000/FPS;
     Uint32 frameStart;
     int frameTime;

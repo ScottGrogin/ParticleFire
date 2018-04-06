@@ -6,7 +6,7 @@ Player::Player(const Vec2& pos, float size, Uint32 color){
     this->pos = pos;
     this->size = size;
     this->color = color;
-    this->speed = 7;
+    this->speed = 6;
     this->canMoveLeft=true;
     this->canMoveRight=true;
     this->canMoveUp =true;
@@ -17,7 +17,7 @@ void Player::update(){
     if(keystate[SDL_SCANCODE_LSHIFT]){
         this->speed = 3;
     } else {
-        speed =7;
+        speed =6;
     }
     //LR movement
     if(keystate[SDL_SCANCODE_LEFT]&&canMoveLeft){
@@ -69,8 +69,21 @@ void Player::update(){
             canMoveUp=true;
         }
     
-            
+    //TODO:Proper Screen Scaling to have resolution independant coordinate system.
 
+    if(this->pos.x-this->size > 1920)  {
+        this->pos.x =0;
+    }
+    if(this->pos.x+this->size < 0)  {
+        this->pos.x =1920;
+    }
+
+    if(this->pos.y-this->size > 1080)  {
+        this->pos.y =0;
+    }
+    if(this->pos.y+this->size < 0)  {
+        this->pos.y =1080;
+    }
 }
 
 void Player::draw(SDL_Renderer* renderer){
