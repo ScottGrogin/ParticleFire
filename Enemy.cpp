@@ -1,21 +1,22 @@
-#include"Particle.h"
+#include"Enemy.h"
 #include"SDL2_gfxPrimitives.h"
 
-
-Particle::Particle(const Vec2& pos, const Vec2& vel, const Vec2& acc, float size, Uint32 color){
+Enemy::Enemy(const Vec2& pos, float size, Uint32 color){
     this->pos = pos;
-    this->vel = vel;
-    this->acc = acc;
     this->size = size;
     this->color = color;
+    this->acc = Vec2(0,0);
+    this->vel = Vec2(0,0);
 }
-void Particle::update(){
+
+void Enemy::update(){
     this->pos += this->vel;
     this->vel += this->acc;
 }
 
-void Particle::draw(SDL_Renderer* renderer){
+void Enemy::draw(SDL_Renderer* renderer, void(*pattern)(Enemy*)){
     update();
+    pattern(this);
     filledCircleColor(renderer,this->pos.x,this->pos.y,size,color);
-
 }
+

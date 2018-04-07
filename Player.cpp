@@ -87,6 +87,7 @@ void Player::update(){
 }
 
 void Player::draw(SDL_Renderer* renderer){
+    update();
     filledCircleColor(renderer,this->pos.x,this->pos.y,size,color);
 
 }

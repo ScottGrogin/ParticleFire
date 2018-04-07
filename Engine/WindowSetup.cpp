@@ -35,6 +35,8 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
 	        std::cout << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
             std::cin.get();
         }else {
+            SDL_RenderSetLogicalSize(renderer,width,height);
+            
             while(running) {
                 frameStart = SDL_GetTicks();
 
@@ -50,7 +52,7 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
 
                     }
                 }
-
+                
                 draw(renderer, 0.0f);
                 frameTime = SDL_GetTicks() - frameStart;
                 if(framedelay > frameTime){
