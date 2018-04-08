@@ -32,6 +32,9 @@ void draw(SDL_Renderer* renderer, float delta){
     pTst.draw(renderer);
     plr.draw(renderer);
     eTst.draw(renderer,enemyMove);
+    for(Particle p : eTst.particles){
+        p.draw(renderer);
+    }
     
   
     //Update screen
@@ -41,5 +44,8 @@ void draw(SDL_Renderer* renderer, float delta){
 
 void enemyMove(Enemy* enemy){
     enemy->vel = Vec2(cos(x*0.002*30)*15,sin(x*0.002*30)*15);
+    if(enemy->particles.size() < 100){
+        enemy->particles.push_back(Particle(Vec2(100,100),Vec2(1,1),Vec2(1,0),5,0xffff00ff));
+    }
     x++;
 }

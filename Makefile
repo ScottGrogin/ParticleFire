@@ -29,7 +29,7 @@ LIBRARY_PATHS = -LDependencies\SDL\lib
 COMPILER_FLAGS =  -Wl,-subsystem,windows
 
 #LINKER_FLAGS specifies the libraries we're linking against
-LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2
+LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lstdc++
 
 #OBJ_NAME specifies the name of our exectuable
 OBJ_NAME = "Builds\Windows\Particle Fire"
