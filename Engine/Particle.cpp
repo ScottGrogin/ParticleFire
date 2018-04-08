@@ -19,3 +19,11 @@ void Particle::draw(SDL_Renderer* renderer){
     filledCircleColor(renderer,this->pos.x,this->pos.y,size,color);
 
 }
+
+bool Particle::isOutOfBounds(Vec2 min, Vec2 max){
+    
+    if(this->pos.x-this->size > max.x || this->pos.x+this->size < min.x||this->pos.y-this->size > max.y || this->pos.y+this->size < min.y )  {
+        return true;
+    }
+    return false;
+}

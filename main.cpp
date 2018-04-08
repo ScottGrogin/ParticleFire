@@ -5,6 +5,7 @@
 #include"Player.h"
 #include"Enemy.h"
 #include<SDL.h>
+#include<iostream>
 
 void draw(SDL_Renderer*, float delta);
 void enemyMove(Enemy*);
@@ -32,9 +33,14 @@ void draw(SDL_Renderer* renderer, float delta){
     pTst.draw(renderer);
     plr.draw(renderer);
     eTst.draw(renderer,enemyMove);
-    for(Particle p : eTst.particles){
-        p.draw(renderer);
+    for(int i =0; i < eTst.particles.size();i++){
+        eTst.particles[i].draw(renderer);
+        if( eTst.particles[i].isOutOfBounds(Vec2(0,0),Vec2(1920,1080))){
+            eTst.particles.erase(eTst.particles.begin()+i);
+        }
     }
+    std::cout<< eTst.particles.size()<<std::endl;
+ 
     
   
     //Update screen
@@ -43,9 +49,9 @@ void draw(SDL_Renderer* renderer, float delta){
 }
 
 void enemyMove(Enemy* enemy){
-    enemy->vel = Vec2(cos(x*0.002*30)*15,sin(x*0.002*30)*15);
-    if(enemy->particles.size() < 100){
-        enemy->particles.push_back(Particle(Vec2(100,100),Vec2(1,1),Vec2(1,0),5,0xffff00ff));
-    }
+    enemy->vel = Vec2(cos(x*0.002*30)*15+cos(x*5),sin(x*0.002*30)*15);
+    
+    enemy->particles.push_back(Particle(enemy->pos,enemy->vel,Vec2(0,0),5,0xffff00ff));
+    
     x++;
 }
