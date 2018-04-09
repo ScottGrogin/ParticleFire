@@ -19,3 +19,14 @@ Vec2 Vec2::operator +=(const Vec2& rhs){
    this->y += rhs.y;
     return *this;
 }
+
+Vec2 Vec2::operator/(float rhs){
+    this->x/=rhs;
+    this->y/=rhs;
+    return *this;
+}
+Vec2 Vec2::operator*(float rhs){
+    this->x*=rhs;
+    this->y*=rhs;
+    return *this;
+}
