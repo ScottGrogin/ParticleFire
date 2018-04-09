@@ -8,15 +8,16 @@ Dependencies\SDL_gfx\SDL2_imageFilter.c \
 Dependencies\SDL_gfx\SDL2_rotozoom.c \
 Engine\Particle.cpp \
 Engine\Vec2.cpp \
-Player.cpp \
-Enemy.cpp
+Engine\Player.cpp \
+Engine\Enemy.cpp \
+Script\TestBench.cpp
 
 
 #CC specifies which compiler we're using
 CC = g++
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -IDependencies\SDL\include\SDL2 -IDependencies\SDL_gfx -IEngine
+INCLUDE_PATHS = -IDependencies\SDL\include\SDL2 -IDependencies\SDL_gfx -IEngine -IScript
 
 
 #LIBRARY_PATHS specifies the additional library paths we'll need

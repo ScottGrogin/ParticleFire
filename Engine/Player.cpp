@@ -2,6 +2,9 @@
 #include"SDL2_gfxPrimitives.h"
 
 
+Player::Player(){
+
+}
 Player::Player(const Vec2& pos, float size, Uint32 color){
     this->pos = pos;
     this->size = size;

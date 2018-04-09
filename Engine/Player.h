@@ -18,6 +18,7 @@ class Player{
         float speed;
         float size;
         Uint32 color;
+        Player();
         Player(const Vec2& pos, float size, Uint32 color);
         void draw(SDL_Renderer* renderer);
 };

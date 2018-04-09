@@ -14,7 +14,8 @@ class Enemy{
         std::vector<Particle> particles;
         float size;
         Uint32 color;
+        Enemy();
         Enemy(const Vec2& pos, float size, Uint32 color);
-        void draw(SDL_Renderer* renderer, void(*pattern)(Enemy*));
+        void draw(SDL_Renderer* renderer);
 };
 #endif
