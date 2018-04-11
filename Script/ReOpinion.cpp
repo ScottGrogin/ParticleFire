@@ -6,6 +6,7 @@ ReOpinion::ReOpinion(){
     this->player = Player(Vec2(200,200),5,0xffffffff);
     this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffffffff);
     this->x = 0;
+    this->hasStateChanged = false;
 }
 
 void ReOpinion::enemyMove(Enemy enemy){

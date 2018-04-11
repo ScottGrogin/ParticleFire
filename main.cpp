@@ -1,19 +1,20 @@
 #include"WindowSetup.h"
 #include<SDL.h>
-#include"TestBench.h"
+#include"GameStates.h"
+#include"GSM.h"
 
-TestBench tb;
+GSM gsm;
 void draw(SDL_Renderer* renderer,float delta);
 
 int main(int argc, char *argv[]){
     WindowSetup windowSetup(1920,1080,60,true,draw);
-    tb = TestBench();
+    gsm = GSM(GameStates::TEST_BENCH);
 
     return 0;
 }
 
 
 void draw(SDL_Renderer* renderer, float delta){
-    tb.draw(renderer);
+    gsm.draw(renderer);
 
 }

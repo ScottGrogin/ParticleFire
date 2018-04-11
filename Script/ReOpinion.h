@@ -3,6 +3,7 @@
 
 #include"Enemy.h"
 #include"Player.h"
+#include"GameStates.h"
 #include <SDL.h>
 
 class ReOpinion{
@@ -13,6 +14,8 @@ class ReOpinion{
         
 
     public:
+        GameStates changeState;
+        bool hasStateChanged;
         ReOpinion();
         void enemyMove(Enemy enemy);
         void draw(SDL_Renderer* renderer);

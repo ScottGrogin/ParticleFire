@@ -3,6 +3,7 @@
 
 #include"Enemy.h"
 #include"Player.h"
+#include"GameStates.h"
 #include <SDL.h>
 
 class TestBench{
@@ -13,6 +14,8 @@ class TestBench{
         
 
     public:
+        GameStates changeState;
+        bool hasStateChanged;
         TestBench();
         void enemyMove(Enemy enemy);
         void draw(SDL_Renderer* renderer);

@@ -10,7 +10,9 @@ Engine\Particle.cpp \
 Engine\Vec2.cpp \
 Engine\Player.cpp \
 Engine\Enemy.cpp \
-Script\TestBench.cpp
+Engine\GSM.cpp \
+Script\TestBench.cpp \
+Script\ReOpinion.cpp
 
 
 #CC specifies which compiler we're using

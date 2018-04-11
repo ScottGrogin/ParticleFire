@@ -6,10 +6,15 @@ TestBench::TestBench(){
     this->player = Player(Vec2(200,200),5,0xffffffff);
     this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffffffff);
     this->x = 0;
+    this->hasStateChanged = false;
+    this->changeState = GameStates::RE_OPINION;
 }
 
 void TestBench::enemyMove(Enemy enemy){
     this->enemy.vel = Vec2(cos(x*0.002*30),sin(x*0.002*10));
+    if(x>60*3){
+        this->hasStateChanged = true;
+    }
     if(x>0 && x%3==0){
         Enemy e = enemy;
         Enemy e2 = enemy;
@@ -29,7 +34,7 @@ void TestBench::enemyMove(Enemy enemy){
     
 }
 void TestBench::draw(SDL_Renderer* renderer){
-     SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0x00, 0xFF );
+    SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0x00, 0xFF );
 
     //Clear screen
     SDL_RenderClear( renderer );
