@@ -5,12 +5,14 @@
 #include"Player.h"
 #include"GameStates.h"
 #include <SDL.h>
+#include <SDL_mixer.h>
 
 class ReOpinion{
     private:
         int x;
         Enemy enemy;
         Player player;
+        Mix_Music *gMusic;
         
 
     public:

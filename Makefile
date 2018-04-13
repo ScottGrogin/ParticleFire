@@ -19,11 +19,11 @@ Script\ReOpinion.cpp
 CC = g++
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -IDependencies\SDL\include\SDL2 -IDependencies\SDL_gfx -IEngine -IScript
+INCLUDE_PATHS = -IDependencies\SDL\include\SDL2 -IDependencies\SDL_gfx -IEngine -IScript -IDependencies\SDL_mixer\include\SDL2
 
 
 #LIBRARY_PATHS specifies the additional library paths we'll need
-LIBRARY_PATHS = -LDependencies\SDL\lib
+LIBRARY_PATHS = -LDependencies\SDL\lib -LDependencies\SDL_mixer\lib
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
@@ -32,7 +32,7 @@ LIBRARY_PATHS = -LDependencies\SDL\lib
 
 
 #LINKER_FLAGS specifies the libraries we're linking against
-LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lstdc++
+LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lstdc++ -lSDL2_mixer
 
 #OBJ_NAME specifies the name of our exectuable
 OBJ_NAME = "Builds\Windows\Particle Fire"
