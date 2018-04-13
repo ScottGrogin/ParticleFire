@@ -1,6 +1,7 @@
 #include "WindowSetup.h"
 #include<SDL.h>
 #include<iostream>
+#include <SDL_mixer.h>
 
 
 WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void(*draw)(SDL_Renderer*,float)){
@@ -36,6 +37,7 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
             std::cin.get();
         }else {
             SDL_RenderSetLogicalSize(renderer,width,height);
+            Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 );
             
             while(running) {
                 frameStart = SDL_GetTicks();

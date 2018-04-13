@@ -7,13 +7,15 @@ ReOpinion::ReOpinion(){
     this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffffffff);
     this->x = 0;
     this->hasStateChanged = false;
-    Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 );
-    this->gMusic = Mix_LoadMUS( "Audio/opinion-becomes-fact.wav" );
-    Mix_PlayMusic(this->gMusic,-1);
+    this->gMusic = Mix_LoadMUS( "../../Audio/opinion-becomes-fact.wav" );
+    
 }
 
 void ReOpinion::enemyMove(Enemy enemy){
     this->enemy.vel = Vec2(cos(x*0.002*30),sin(x*0.002*10));
+    if(x==0){
+        Mix_PlayMusic(this->gMusic,-1);
+    }
     if(x>0 && x%3==0){
         Enemy e = enemy;
         Enemy e2 = enemy;

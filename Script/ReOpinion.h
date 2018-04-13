@@ -12,7 +12,7 @@ class ReOpinion{
         int x;
         Enemy enemy;
         Player player;
-        Mix_Music *gMusic;
+        Mix_Music *gMusic=NULL;
         
 
     public:
