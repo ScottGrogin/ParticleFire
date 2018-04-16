@@ -31,11 +31,7 @@ void ReOpinion::enemyMove(Enemy enemy){
         Enemy e4 = enemy;
         Enemy e5 = enemy;
        
-        
-        //this->enemy.particles.push_back(Particle(e.pos,e.vel,e.vel/60,5,0xffff00ff));
-       //this->enemy.particles.push_back(Particle(e2.pos,e2.vel*-1,(e2.vel*-1)/60,5,0xffff00ff));
-        //this->enemy.particles.push_back(Particle(e3.pos,Vec2(e3.vel.x*-1,e3.vel.y),Vec2(e3.vel.x*-1,e3.vel.y)/60,5,0xffff00ff));
-        this->enemy.particles.push_back(Particle(e4.pos,Vec2(e4.vel.x,e4.vel.y*-1),Vec2(e4.vel.x,e4.vel.y*-1)/60,5,0xffff00ff));
+         this->enemy.particles.push_back(Particle(e4.pos,Vec2(e4.vel.x,e4.vel.y*-1),Vec2(e4.vel.x,e4.vel.y*-1)/60,5,0xffff00ff));
         
     }    
         
