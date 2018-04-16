@@ -2,13 +2,21 @@
 #include"SDL2_gfxPrimitives.h"
 #include<iostream>
 
+
 ReOpinion::ReOpinion(){
     this->player = Player(Vec2(200,200),5,0xffffffff);
     this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffffffff);
     this->x = 0;
     this->hasStateChanged = false;
     this->gMusic = Mix_LoadMUS( "../../Audio/opinion-becomes-fact.wav" );
-    
+    this->roboto = TTF_OpenFont("C:/Users/NULL/Documents/GitHub/ParticleFire/Fonts/Roboto/Roboto-Black.ttf",24);
+    this->White = {255, 255, 255};
+    this->surfaceMessage = TTF_RenderText_Solid(this->roboto, "put your text here", this->White); 
+    this->Message_rect.x = 100;  //controls the rect's x coordinate 
+    this->Message_rect.y = 100; // controls the rect's y coordinte
+    this->Message_rect.w = 800; // controls the width of the rect
+    this->Message_rect.h = 400; // controls the height of the rect
+  
 }
 
 void ReOpinion::enemyMove(Enemy enemy){
@@ -39,6 +47,11 @@ void ReOpinion::draw(SDL_Renderer* renderer){
 
     //Clear screen
     SDL_RenderClear( renderer );
+
+    this->Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+     
+
+    SDL_RenderCopy(renderer, this->Message, NULL, &this->Message_rect); 
 
     this->player.draw(renderer);
     this->enemyMove(this->enemy);
