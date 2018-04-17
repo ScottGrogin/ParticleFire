@@ -3,19 +3,16 @@
 #include<iostream>
 
 
+
 ReOpinion::ReOpinion(){
+   
     this->player = Player(Vec2(200,200),5,0xffffffff);
     this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffffffff);
     this->x = 0;
     this->hasStateChanged = false;
     this->gMusic = Mix_LoadMUS( "../../Audio/opinion-becomes-fact.wav" );
-    this->roboto = TTF_OpenFont("C:/Users/NULL/Documents/GitHub/ParticleFire/Fonts/Roboto/Roboto-Black.ttf",24);
-    this->White = {255, 255, 255};
-    this->surfaceMessage = TTF_RenderText_Solid(this->roboto, "put your text here", this->White); 
-    this->Message_rect.x = 100;  //controls the rect's x coordinate 
-    this->Message_rect.y = 100; // controls the rect's y coordinte
-    this->Message_rect.w = 800; // controls the width of the rect
-    this->Message_rect.h = 400; // controls the height of the rect
+    this->font = TTF_OpenFont("../../Fonts/Caveat/Caveat-Bold.ttf",60);
+ 
   
 }
 
@@ -43,11 +40,14 @@ void ReOpinion::draw(SDL_Renderer* renderer){
 
     //Clear screen
     SDL_RenderClear( renderer );
+    drawText(renderer,"Pradadada",Vec2(1920/3,1080/2),{255, 255, 255});
+    drawText(renderer,"Valenteen O\'",Vec2(1920/3,1080/3),{255, 255, 255});
 
-    this->Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+   
+
+    
      
 
-    SDL_RenderCopy(renderer, this->Message, NULL, &this->Message_rect); 
 
     this->player.draw(renderer);
     this->enemyMove(this->enemy);
@@ -64,4 +64,22 @@ void ReOpinion::draw(SDL_Renderer* renderer){
   
     //Update screen
     SDL_RenderPresent( renderer );
+}
+
+void ReOpinion::drawText(SDL_Renderer* renderer, const char* string, Vec2 pos, SDL_Color color){
+    int w=0,h=0;
+    SDL_Rect Message_rect;
+    SDL_Texture* Message; 
+    SDL_Surface* surfaceMessage;
+    surfaceMessage = TTF_RenderText_Solid(this->font, string, color); 
+    Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+    SDL_QueryTexture(Message,NULL,NULL,&w,&h);
+   
+    Message_rect.x = pos.x;  //controls the rect's x coordinate 
+    Message_rect.y = pos.y; // controls the rect's y coordinte
+    Message_rect.w = w; // controls the width of the rect
+    Message_rect.h = h; // controls the height of the rect
+    
+    SDL_RenderCopy(renderer, Message, NULL, &Message_rect); 
+
 }

@@ -4,9 +4,11 @@
 #include"Enemy.h"
 #include"Player.h"
 #include"GameStates.h"
+#include"Vec2.h"
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include<SDL_ttf.h>
+
 
 class ReOpinion{
     private:
@@ -14,11 +16,11 @@ class ReOpinion{
         Enemy enemy;
         Player player;
         Mix_Music *gMusic=NULL;
-        TTF_Font *roboto=NULL;
-        SDL_Color White;
-        SDL_Surface* surfaceMessage;
-        SDL_Texture* Message; 
-        SDL_Rect Message_rect;
+        TTF_Font *font=NULL;
+       
+    
+      
+        void drawText(SDL_Renderer* renderer, const char* string, Vec2 pos, SDL_Color color);
 
     public:
         GameStates changeState;
