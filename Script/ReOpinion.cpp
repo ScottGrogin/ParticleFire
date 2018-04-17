@@ -12,6 +12,7 @@ ReOpinion::ReOpinion(){
     this->hasStateChanged = false;
     this->gMusic = Mix_LoadMUS( "../../Audio/opinion-becomes-fact.wav" );
     this->font = TTF_OpenFont("../../Fonts/Caveat/Caveat-Bold.ttf",60);
+    this->text = Text();
  
   
 }
@@ -40,8 +41,8 @@ void ReOpinion::draw(SDL_Renderer* renderer){
 
     //Clear screen
     SDL_RenderClear( renderer );
-    drawText(renderer,"Pradadada",Vec2(1920/3,1080/2),{255, 255, 255});
-    drawText(renderer,"Valenteen O\'",Vec2(1920/3,1080/3),{255, 255, 255});
+    text.drawText(renderer,"Pradadada",Vec2(1920/3,1080/2),{255, 255, 255},this->font);
+    text.drawText(renderer,"Valenteen O\'",Vec2(1920/3,1080/3),{255, 255, 255},this->font);
 
    
 
@@ -64,22 +65,4 @@ void ReOpinion::draw(SDL_Renderer* renderer){
   
     //Update screen
     SDL_RenderPresent( renderer );
-}
-
-void ReOpinion::drawText(SDL_Renderer* renderer, const char* string, Vec2 pos, SDL_Color color){
-    int w=0,h=0;
-    SDL_Rect Message_rect;
-    SDL_Texture* Message; 
-    SDL_Surface* surfaceMessage;
-    surfaceMessage = TTF_RenderText_Solid(this->font, string, color); 
-    Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-    SDL_QueryTexture(Message,NULL,NULL,&w,&h);
-   
-    Message_rect.x = pos.x;  //controls the rect's x coordinate 
-    Message_rect.y = pos.y; // controls the rect's y coordinte
-    Message_rect.w = w; // controls the width of the rect
-    Message_rect.h = h; // controls the height of the rect
-    
-    SDL_RenderCopy(renderer, Message, NULL, &Message_rect); 
-
 }

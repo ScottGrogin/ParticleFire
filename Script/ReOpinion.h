@@ -5,6 +5,7 @@
 #include"Player.h"
 #include"GameStates.h"
 #include"Vec2.h"
+#include"Text.h"
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include<SDL_ttf.h>
@@ -17,10 +18,8 @@ class ReOpinion{
         Player player;
         Mix_Music *gMusic=NULL;
         TTF_Font *font=NULL;
+        Text text;
        
-    
-      
-        void drawText(SDL_Renderer* renderer, const char* string, Vec2 pos, SDL_Color color);
 
     public:
         GameStates changeState;

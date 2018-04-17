@@ -11,8 +11,9 @@ Engine\Vec2.cpp \
 Engine\Player.cpp \
 Engine\Enemy.cpp \
 Engine\GSM.cpp \
+Engine\Text.cpp \
 Script\TestBench.cpp \
-Script\ReOpinion.cpp
+Script\ReOpinion.cpp 
 
 
 #CC specifies which compiler we're using
