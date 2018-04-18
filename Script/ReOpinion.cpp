@@ -7,7 +7,7 @@
 ReOpinion::ReOpinion(){
    
     this->player = Player(Vec2(200,200),5,0xffffffff);
-    this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffffffff);
+    this->enemy = Enemy(Vec2(1920/2,1080/2 - 100),5,0xffff00ff);
     this->x = 0;
     this->hasStateChanged = false;
     this->gMusic = Mix_LoadMUS( "../../Audio/opinion-becomes-fact.wav" );
@@ -30,6 +30,15 @@ void ReOpinion::enemyMove(Enemy enemy){
         Enemy e5 = enemy;
        
          this->enemy.particles.push_back(Particle(e4.pos,Vec2(e4.vel.x,e4.vel.y*-1),Vec2(e4.vel.x,e4.vel.y*-1)/60,5,0xffff00ff));
+         if(x > 60*6){  
+            this->enemy.particles.push_back(Particle(e.pos,e.vel,e.vel/60,5,0xffff00ff));
+         }
+         if(x>60*12){
+              this->enemy.particles.push_back(Particle(e2.pos,e2.vel*-1,(e2.vel*-1)/60,5,0xffff00ff));
+         }
+         if(x>60*23){
+               this->enemy.particles.push_back(Particle(e3.pos,Vec2(e3.vel.x*-1,e3.vel.y),Vec2(e3.vel.x*-1,e3.vel.y)/60,5,0xffff00ff));
+         }
         
     }    
         

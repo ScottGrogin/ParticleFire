@@ -15,6 +15,7 @@ int main(int argc, char *argv[]){
 
 
 void draw(SDL_Renderer* renderer, float delta){
+    
     gsm.draw(renderer);
 
 }
