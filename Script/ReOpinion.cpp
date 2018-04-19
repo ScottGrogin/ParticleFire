@@ -32,13 +32,13 @@ void ReOpinion::enemyMove(Enemy enemy){
        
        
          this->enemy.particles.push_back(Particle(e4.pos,Vec2(e4.vel.x,e4.vel.y*-1),Vec2(e4.vel.x,e4.vel.y*-1)/60,5,0xffff00ff));
-         if(x > 60*6){  
+         if(x >= 60*6){  
             this->enemy.particles.push_back(Particle(e.pos,e.vel,e.vel/60,5,0xffff00ff));
          }
-         if(x>60*12){
+         if(x>=60*12){
             this->enemy.particles.push_back(Particle(e2.pos,e2.vel*-1,(e2.vel*-1)/60,5,0xffff00ff));
          }
-         if(x>60*23){
+         if(x>=60*23){
             this->enemy.particles.push_back(Particle(Vec2((x*2)%1920,0),Vec2(0,1),Vec2(0,1)/20,5,0xffff00ff));
 
          }
@@ -46,9 +46,12 @@ void ReOpinion::enemyMove(Enemy enemy){
         
     }    
     if(x>0 && x%8==0){
-        if(x>60*51){
+        if(x>=60*51 && x < 60*62){
             this->enemy.particles.push_back(Particle(Vec2(sin(x*sin(x))*1920,0),Vec2(0,1),Vec2(0,1)/60,5,0xffff00ff));
-         }
+        }
+        if(x >= 60*62){
+           this->enemy.particles.push_back(Particle( Vec2(1920 - ((x*2)%1920),0),Vec2(0,1),Vec2(0,1)/20,5,0xffff00ff));
+        }
     }
         
         this->x++;
@@ -59,8 +62,8 @@ void ReOpinion::draw(SDL_Renderer* renderer){
 
     //Clear screen
     SDL_RenderClear( renderer );
-    text.drawText(renderer,"Pradadada",Vec2(1920/3,1080/2),{255, 255, 255},this->font);
-    text.drawText(renderer,"Valenteen O\'",Vec2(1920/3,1080/3),{255, 255, 255},this->font);
+    // text.drawText(renderer,"Pradadada",Vec2(1920/3,1080/2),{255, 255, 255},this->font);
+    // text.drawText(renderer,"Valenteen O\'",Vec2(1920/3,1080/3),{255, 255, 255},this->font);
 
    
 
