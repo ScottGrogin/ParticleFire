@@ -6,7 +6,7 @@
 
 class Strange{
     private:
-        Particle particles[10];
+        //Particle particles[10] =NULL;
     public:
         GameStates changeState;
         bool hasStateChanged;

@@ -25,6 +25,7 @@ class ReOpinion{
         GameStates changeState;
         bool hasStateChanged;
         ReOpinion();
+        
         void enemyMove(Enemy enemy);
         void draw(SDL_Renderer* renderer);
 };

@@ -17,30 +17,39 @@ ReOpinion::ReOpinion(){
   
 }
 
+
 void ReOpinion::enemyMove(Enemy enemy){
     this->enemy.vel = Vec2(cos(x*0.002*30),sin(x*0.002*10));
+    Enemy e = enemy;
+    Enemy e2 = enemy;
+    Enemy e3 = enemy;
+    Enemy e4 = enemy;
+    Enemy e5 = enemy;
     if(x==0){
         Mix_PlayMusic(this->gMusic,-1);
     }
     if(x>0 && x%3==0){
-        Enemy e = enemy;
-        Enemy e2 = enemy;
-        Enemy e3 = enemy;
-        Enemy e4 = enemy;
-        Enemy e5 = enemy;
+       
        
          this->enemy.particles.push_back(Particle(e4.pos,Vec2(e4.vel.x,e4.vel.y*-1),Vec2(e4.vel.x,e4.vel.y*-1)/60,5,0xffff00ff));
          if(x > 60*6){  
             this->enemy.particles.push_back(Particle(e.pos,e.vel,e.vel/60,5,0xffff00ff));
          }
          if(x>60*12){
-              this->enemy.particles.push_back(Particle(e2.pos,e2.vel*-1,(e2.vel*-1)/60,5,0xffff00ff));
+            this->enemy.particles.push_back(Particle(e2.pos,e2.vel*-1,(e2.vel*-1)/60,5,0xffff00ff));
          }
          if(x>60*23){
-               this->enemy.particles.push_back(Particle(e3.pos,Vec2(e3.vel.x*-1,e3.vel.y),Vec2(e3.vel.x*-1,e3.vel.y)/60,5,0xffff00ff));
+            this->enemy.particles.push_back(Particle(Vec2((x*2)%1920,0),Vec2(0,1),Vec2(0,1)/20,5,0xffff00ff));
+
          }
+         
         
     }    
+    if(x>0 && x%8==0){
+        if(x>60*51){
+            this->enemy.particles.push_back(Particle(Vec2(sin(x*sin(x))*1920,0),Vec2(0,1),Vec2(0,1)/60,5,0xffff00ff));
+         }
+    }
         
         this->x++;
     
@@ -68,7 +77,7 @@ void ReOpinion::draw(SDL_Renderer* renderer){
             this->enemy.particles.erase(this->enemy.particles.begin()+i);
         }
     }
-    std::cout<< this->enemy.particles.size()<<std::endl;
+    
  
     
   

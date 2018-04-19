@@ -13,7 +13,10 @@ Engine\Enemy.cpp \
 Engine\GSM.cpp \
 Engine\Text.cpp \
 Script\TestBench.cpp \
-Script\ReOpinion.cpp 
+Script\ReOpinion.cpp \
+Script\DistanceLines.cpp \
+Script\Strange.cpp \
+Script\War.cpp
 
 
 #CC specifies which compiler we're using

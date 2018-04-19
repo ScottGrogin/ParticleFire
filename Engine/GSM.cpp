@@ -2,10 +2,10 @@
 
 
 GSM::GSM(){
-
 }
 GSM::GSM(GameStates initialState){
     this->currentState = initialState;
+    changeState();
 }
 
 void GSM::changeState(){

@@ -48,7 +48,7 @@ void TestBench::draw(SDL_Renderer* renderer){
             this->enemy.particles.erase(this->enemy.particles.begin()+i);
         }
     }
-    std::cout<< this->enemy.particles.size()<<std::endl;
+    //std::cout<< this->enemy.particles.size()<<std::endl;
  
     
   

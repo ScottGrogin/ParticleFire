@@ -1,11 +1,14 @@
 #include "WindowSetup.h"
+#include "GSM.h"
+#include"GameStates.h"
 #include<SDL.h>
 #include<iostream>
 #include <SDL_mixer.h>
 #include<SDL_ttf.h>
 
 
-WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void(*draw)(SDL_Renderer*,float)){
+WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen){
+   
     bool running=true;
     const int FPS = fps;
     const int framedelay = 1000/FPS;
@@ -40,7 +43,7 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
             SDL_RenderSetLogicalSize(renderer,width,height);
             Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 );
             TTF_Init();
-            
+             GSM gsm = GSM(GameStates::RE_OPINION);
             while(running) {
                 frameStart = SDL_GetTicks();
 
@@ -57,7 +60,7 @@ WindowSetup::WindowSetup(int width, int height, int fps, bool isFullScreen, void
                     }
                 }
                 
-                draw(renderer, 0.0f);
+                gsm.draw(renderer);
                 frameTime = SDL_GetTicks() - frameStart;
                 if(framedelay > frameTime){
                     SDL_Delay(framedelay-frameTime);

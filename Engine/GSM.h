@@ -9,8 +9,9 @@
 #include<SDL.h>
 class GSM{
     private:
-        TestBench tb;
+        
         ReOpinion re;
+        TestBench tb;
         DistanceLines dl;
         War war;
         Strange strange;
