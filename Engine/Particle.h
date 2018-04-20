@@ -12,6 +12,7 @@ class Particle{
         Vec2 vel, acc;
         float size;
         Uint32 color;
+        Particle();
         Particle(const Vec2& pos, const Vec2& vel, const Vec2& acc, float size, Uint32 color);
         void draw(SDL_Renderer* renderer);
         bool isOutOfBounds(Vec2 min,Vec2 max);
